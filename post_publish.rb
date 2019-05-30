@@ -100,7 +100,7 @@ end
 #create and write the webvtt file
 def write_to_webvtt myarray
 
-  filename = "#{$published_files}/videoCaption.vtt"
+  filename = "#{$published_files}/caption_en_US.vtt"
   file = File.open(filename,"w")
   file.puts ("WEBVTT\n\n")
 
@@ -132,6 +132,10 @@ def write_to_webvtt myarray
     end
     i = i + 30
   end
+
+  captions_file_name = "#{$published_files}/captions.json"
+  captions_file = File.open(captions_file_name,"w")
+  captions_file.puts ("{\"localeName\": \"English (United States)\", \"locale\": \"en_US\"}")
 end
 
 #create an array with the start time, stop time and words
@@ -271,9 +275,6 @@ else
     BigBlueButton.logger.info("No valid speech-to-text service selected")
     exit 1  
 end
-
-
-
 
 
 

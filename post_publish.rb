@@ -51,7 +51,7 @@ require "google/cloud/storage"
 #web_captions = File.open("#{$published_files}/captions.vtt", "w")
 #web_captions.puts("WEBVTT\n\n")
 
-ENV['GOOGLE_APPLICATION_CREDENTIALS'] = '/usr/local/bigbluebutton/core/scripts/post_publish/bbb-accessibility-d586bee010f7.json'
+ENV['GOOGLE_APPLICATION_CREDENTIALS'] = '/usr/local/bigbluebutton/core/scripts/post_publish/bbb-accessibility-183f2b339bfb.json'
 
 $transcribe = {
     "service" => "google"
@@ -135,7 +135,7 @@ def write_to_webvtt myarray
 
   captions_file_name = "#{$published_files}/captions.json"
   captions_file = File.open(captions_file_name,"w")
-  captions_file.puts ("{\"localeName\": \"English (United States)\", \"locale\": \"en_US\"}")
+  captions_file.puts ("[{\"localeName\": \"English (United States)\", \"locale\": \"en_US\"}]")
 end
 
 #create an array with the start time, stop time and words
